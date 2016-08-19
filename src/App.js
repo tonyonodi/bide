@@ -11,6 +11,7 @@ const DEFAULT_ERROR_CODE = `alert("Your bookmarklet has compilation errors.")`;
 const BABEL_OPTIONS = {
   presets: ['es2015'],
   minified: true,
+  comments: false,
 };
 
 const CODEMIRROR_OPTIONS = {
@@ -19,7 +20,7 @@ const CODEMIRROR_OPTIONS = {
   theme: "icecoder",
 };
 
-const DEV_BOOKMARKLET_HREF=`javascript:(function(){"use strict";var CorrectLocation="http://localhost:3002/";if(window.location.href===CorrectLocation){var element=document.getElementById("code-silo");eval(element.innerHTML)}else{alert("You must be at "+CorrectLocation+" to use this bookmarklet.")}})()`;
+const DEV_BOOKMARKLET_HREF=`javascript:(function(){"use strict";var bookmarkletStudioUrl="http://localhost:3002";var iframe=document.createElement("iframe");iframe.setAttribute("src",bookmarkletStudioUrl);iframe.style.display="none";var eventMethod=window.addEventListener?"addEventListener":"attachEvent";var eventer=window[eventMethod];var messageEvent=eventMethod=="attachEvent"?"onmessage":"message";eventer(messageEvent,function(event){try{eval(event.data)}catch(err){console.error(err)}document.body.removeChild(iframe)},false);document.body.appendChild(iframe);})()`;
 
 class BookmarkletButton extends Component {
   render() {
@@ -52,6 +53,10 @@ class App extends Component {
     super(props, content);
     const code = localStorage.getItem("BS_code") || "";
     const compiledCode = this.compileCode(code);
+
+    // Pass compiled code to parent if in iframe so that dev
+    // bookmarklet can retrieve code on other domains.
+    parent.postMessage(compiledCode, "*");
 
     this.state = {
       code,

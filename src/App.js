@@ -2,18 +2,12 @@ import React, {Component} from "react";
 import "./App.css";
 import Codemirror from "react-codemirror";
 import Header from "./components/Header";
+import CompileBookmarklet from "./lib/Compiler";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/icecoder.css";
-import * as Babel from "babel-standalone";
 
 const DEFAULT_ERROR_CODE = `alert("Your bookmarklet has compilation errors.")`;
-
-const BABEL_OPTIONS = {
-  presets: [ "es2015" ],
-  minified: true,
-  comments: false
-};
 
 const CODEMIRROR_OPTIONS = {
   lineNumbers: true,
@@ -39,16 +33,7 @@ class App extends Component {
     };
   }
 
-  compileCode = code => {
-    let compiledCode;
-    try {
-      compiledCode = Babel.transform(code, BABEL_OPTIONS).code;
-    } catch (e) {
-      console.error(e);
-      compiledCode = DEFAULT_ERROR_CODE;
-    }
-    return `javascript:(function(){${compiledCode}})()`;
-  };
+  compileCode = CompileBookmarklet;
 
   handleChange = code => {
     this.setState({ code });

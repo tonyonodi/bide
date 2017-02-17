@@ -1,17 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 html, body, #root, .App {
   height: 100%;
 }
 
 .App-header {
   background-color: #222;
-  height: 40px;
+  height: 80px;
   padding: 20px;
   color: white;
 }
 
 .App-header h1 {
   display: inline-block;
-  margin: 0
+  margin: 0;
+  font-family: 'Inconsolata', monospace;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  font-size: 40px;
+  text-shadow: 1px 1px 0 #000,
+               2px 2px 0 #000,
+               3px 3px 0 #000,
+               4px 4px 0 #000,
+               5px 5px 0 #000;
 }
 
 .bookmarklet {
@@ -21,4 +36,8 @@ html, body, #root, .App {
   padding: 8px;
   float: right;
   margin: 4px 5px;
+}
+
+.ReactCodeMirror, .CodeMirror.cm-s-icecoder {
+  height: calc(100vh - 80px);
 }

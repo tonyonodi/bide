@@ -7,8 +7,6 @@ import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/icecoder.css";
 
-const DEFAULT_ERROR_CODE = `alert("Your bookmarklet has compilation errors.")`;
-
 const CODEMIRROR_OPTIONS = {
   lineNumbers: true,
   mode: "javascript",

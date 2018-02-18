@@ -6,6 +6,8 @@ const BABEL_OPTIONS = {
   comments: false
 };
 
+const DEFAULT_ERROR_CODE = `alert("Your bookmarklet has compilation errors.")`;
+
 export default code => {
   let compiledCode;
   try {

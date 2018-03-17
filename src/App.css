@@ -22,10 +22,16 @@ html, body, #root, .App {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
   font-size: 2rem;
+  background: white;
+  color: #1d1d1b;
+  padding: 0px 5px;
+  border-radius: 7px;
+  margin-top: 4px;
 }
 
 .bookmarklet {
   color: #fff;
+  font-family: 'Inconsolata', monospace;  
   text-decoration: none;
   background: #c35050;
   padding: 8px;
@@ -35,5 +41,5 @@ html, body, #root, .App {
 }
 
 .ReactCodeMirror, .CodeMirror.cm-s-icecoder {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 60px);
 }

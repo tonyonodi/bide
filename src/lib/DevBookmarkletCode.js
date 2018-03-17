@@ -1,13 +1,14 @@
 import BookmarkletCompiler from "./Compiler";
 
 const BABEL_OPTIONS = {
-  presets: [ "es2015" ],
+  presets: ["es2015"],
   minified: true,
-  comments: false
+  comments: false,
 };
 
 export default BookmarkletCompiler(
   `
+console.log("thing happening");
 const bookmarkletStudioUrl = "${window.location.origin}/_blank.html";
 const iframe = document.createElement("iframe");
 iframe.setAttribute("src", bookmarkletStudioUrl);
@@ -35,4 +36,4 @@ eventer(
 );
 
 document.body.appendChild(iframe);`
-)
+);

@@ -9,9 +9,9 @@ html, body, #root, .App {
 }
 
 .App-header {
-  background-color: #222;
-  height: 80px;
-  padding: 20px;
+  background-color: #1d1d1b;
+  height: 60px;
+  padding: 10px 20px;
   color: white;
 }
 
@@ -21,12 +21,7 @@ html, body, #root, .App {
   font-family: 'Inconsolata', monospace;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: white;
-  font-size: 40px;
-  text-shadow: 1px 1px 0 #000,
-               2px 2px 0 #000,
-               3px 3px 0 #000,
-               4px 4px 0 #000,
-               5px 5px 0 #000;
+  font-size: 2rem;
 }
 
 .bookmarklet {
@@ -36,6 +31,7 @@ html, body, #root, .App {
   padding: 8px;
   float: right;
   margin: 4px 5px;
+  border-radius: 5px;
 }
 
 .ReactCodeMirror, .CodeMirror.cm-s-icecoder {

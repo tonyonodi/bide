@@ -1,9 +1,9 @@
 import * as Babel from "babel-standalone";
 
 const BABEL_OPTIONS = {
-  presets: [ "es2015" ],
+  presets: ["es2015"],
   minified: true,
-  comments: false
+  comments: false,
 };
 
 const DEFAULT_ERROR_CODE = `alert("Your bookmarklet has compilation errors.")`;
@@ -17,4 +17,4 @@ export default code => {
     compiledCode = DEFAULT_ERROR_CODE;
   }
   return `javascript:(function(){${compiledCode}})()`;
-}
+};

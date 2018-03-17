@@ -7,12 +7,23 @@ import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/icecoder.css";
 import "codemirror/keymap/sublime";
+import "codemirror/addon/edit/closebrackets.js";
+import "codemirror/addon/edit/matchbrackets.js";
+import "codemirror/addon/edit/matchtags.js";
+import "codemirror/addon/dialog/dialog.js";
+import "codemirror/addon/dialog/dialog.css";
+import "codemirror/addon/search/search.js";
+import "codemirror/addon/search/searchcursor.js";
+import "codemirror/addon/comment/comment.js";
 
 const CODEMIRROR_OPTIONS = {
-  lineNumbers: true,
   mode: "javascript",
   theme: "icecoder",
   keyMap: "sublime",
+  lineNumbers: true,
+  autoCloseBrackets: true,
+  matchBrackets: true,
+  undoDepth: Infinity,
 };
 
 class App extends Component {
@@ -24,7 +35,7 @@ class App extends Component {
     // Pass compiled code to parent if in iframe so that dev
     // bookmarklet can retrieve code on other domains.
     console.log(compiledCode);
-    parent.postMessage(compiledCode, "*");
+    window.parent.postMessage(compiledCode, "*");
 
     this.state = {
       code,

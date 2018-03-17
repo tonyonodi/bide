@@ -1,15 +1,14 @@
-import BookmarkletCompiler from "./Compiler";
+import bookmarkletCompiler from "./Compiler";
 
-const BABEL_OPTIONS = {
-  presets: ["es2015"],
-  minified: true,
-  comments: false,
-};
+// const BABEL_OPTIONS = {
+//   presets: ["es2015"],
+//   minified: true,
+//   comments: false,
+// };
 
-export default BookmarkletCompiler(
+export default bookmarkletCompiler(
   `
-console.log("thing happening");
-const bookmarkletStudioUrl = "${window.location.origin}/_blank.html";
+const bookmarkletStudioUrl = "${window.location.origin}";
 const iframe = document.createElement("iframe");
 iframe.setAttribute("src", bookmarkletStudioUrl);
 iframe.style.display = "none";

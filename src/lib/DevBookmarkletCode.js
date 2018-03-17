@@ -8,31 +8,37 @@ import bookmarkletCompiler from "./Compiler";
 
 export default bookmarkletCompiler(
   `
-const bookmarkletStudioUrl = "${window.location.origin}";
-const iframe = document.createElement("iframe");
-iframe.setAttribute("src", bookmarkletStudioUrl);
-iframe.style.display = "none";
+(() => {
+  let hasRun;
+  const bookmarkletStudioUrl = "${window.location.origin}";
+  const iframe = document.createElement("iframe");
+  iframe.setAttribute("src", bookmarkletStudioUrl);
+  iframe.style.display = "none";
 
-// Create IE + others compatible event handler
-const eventMethod = window.addEventListener
-  ? "addEventListener"
-  : "attachEvent";
-const eventer = window[eventMethod];
-const messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+  // Create IE + others compatible event handler
+  const eventMethod = window.addEventListener
+    ? "addEventListener"
+    : "attachEvent";
+  const eventer = window[eventMethod];
+  const messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
-// Listen to message from child window
-eventer(
-  messageEvent,
-  function(event) {
-    try {
-      eval(event.data);
-    } catch (err) {
-      console.error(err);
-    }
-    document.body.removeChild(iframe);
-  },
-  false
-);
+  // Listen to message from child window
+  eventer(
+    messageEvent,
+    function(event) {
+      if (hasRun) return;
+      try {
+        eval(event.data);
+        hasRun = true;
+      } catch (err) {
+        console.error(err);
+      }
+      document.body.removeChild(iframe);
+    },
+    false
+  );
 
-document.body.appendChild(iframe);`
+  document.body.appendChild(iframe);
+})()
+`
 );

@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Codemirror from "react-codemirror";
 import Header from "./components/Header";
@@ -6,11 +6,13 @@ import CompileBookmarklet from "./lib/Compiler";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/icecoder.css";
+import "codemirror/keymap/sublime";
 
 const CODEMIRROR_OPTIONS = {
   lineNumbers: true,
   mode: "javascript",
-  theme: "icecoder"
+  theme: "icecoder",
+  keyMap: "sublime",
 };
 
 class App extends Component {
@@ -27,7 +29,7 @@ class App extends Component {
     this.state = {
       code,
       bookmarkletText: "Production Bookmarklet",
-      compiledCode
+      compiledCode,
     };
   }
 
@@ -42,12 +44,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header code={this.state.compiledCode} bookmarkletText={
-          this.state.bookmarkletText
-        } />
-        <Codemirror value={this.state.code} onChange={
-          this.handleChange
-        } options={CODEMIRROR_OPTIONS} />
+        <Header
+          code={this.state.compiledCode}
+          bookmarkletText={this.state.bookmarkletText}
+        />
+        <Codemirror
+          value={this.state.code}
+          onChange={this.handleChange}
+          options={CODEMIRROR_OPTIONS}
+        />
         <div id="code-silo" style={{ display: "none" }}>
           {this.state.compiledCode}
         </div>
@@ -56,4 +61,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;

@@ -3,6 +3,7 @@ import "./App.css";
 import Codemirror from "react-codemirror";
 import Header from "./components/Header";
 import CompileBookmarklet from "./lib/Compiler";
+import defaultCode from "./defaultCode";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/icecoder.css";
@@ -29,17 +30,17 @@ const CODEMIRROR_OPTIONS = {
 class App extends Component {
   constructor(props, content) {
     super(props, content);
-    const code = localStorage.getItem("BS_code") || "";
+    const code = localStorage.getItem("BS_code") || defaultCode;
     const compiledCode = this.compileCode(code);
 
     // Pass compiled code to parent if in iframe so that dev
     // bookmarklet can retrieve code on other domains.
-    console.log(compiledCode);
     window.parent.postMessage(compiledCode, "*");
 
     this.state = {
       code,
-      bookmarkletText: "Production Bookmarklet",
+      bookmarkletText:
+        localStorage.getItem("BS_name") || "Production Bookmarklet",
       compiledCode,
     };
   }

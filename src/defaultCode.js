@@ -1,5 +1,4 @@
-export default `
-// __/\\\\\\\\\\\\\\\\\\\\\\\\\\____/\\\\\\\\\\\\\\\\\\\\\\__/\\\\\\\\\\\\\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_        
+export default `// __/\\\\\\\\\\\\\\\\\\\\\\\\\\____/\\\\\\\\\\\\\\\\\\\\\\__/\\\\\\\\\\\\\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_        
 //  _\\/\\\\\\/////////\\\\\\_\\/////\\\\\\///__\\/\\\\\\////////\\\\\\__\\/\\\\\\///////////__       
 //   _\\/\\\\\\_______\\/\\\\\\_____\\/\\\\\\_____\\/\\\\\\______\\//\\\\\\_\\/\\\\\\_____________      
 //    _\\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\______\\/\\\\\\_____\\/\\\\\\_______\\/\\\\\\_\\/\\\\\\\\\\\\\\\\\\\\\\_____     
@@ -10,10 +9,13 @@ export default `
 //         _\\/////////////____\\///////////__\\////////////_____\\///////////////__
 //
 // Welcome to BIDE, the bookmarklet IDE. It compiles the JavaScript you type in
-// this editor into ES5, minifies it, and inserts it into the link in the top r-
-// ight corner of the page. Drag either of the two bookmarklets to your bookmark
-// bar to test them out. 
+// this editor into ES5, minifies it, inserts into a immediately invoked funct-
+// ion expression, and inserts it into the link in the top right corner of the 
+// page. Drag either of the two bookmarklets to your bookmark bar to test them 
+// out. 
 // 
+// Your changes are automatically saved to the browser's local storage so you 
+// can close the tab and come back to what you were doing later.
 
 console.log("Hello, BIDE!");
 `;

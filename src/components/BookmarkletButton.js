@@ -92,7 +92,6 @@ export default class BookmarkletButton extends Component {
   };
 
   handleBlur = _e => {
-    console.log("handling blur");
     this.setState({ draftName: null });
   };
 

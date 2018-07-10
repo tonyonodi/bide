@@ -17,5 +17,5 @@ export default `// __/\\\\\\\\\\\\\\\\\\\\\\\\\\____/\\\\\\\\\\\\\\\\\\\\\\__/\\
 // Your changes are automatically saved to the browser's local storage so you 
 // can close the tab and come back to what you were doing later.
 
-console.log("Hello, world!");
+alert("Hello, world!");
 `;

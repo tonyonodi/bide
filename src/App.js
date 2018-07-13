@@ -39,8 +39,7 @@ class App extends Component {
 
     this.state = {
       code,
-      bookmarkletText:
-        localStorage.getItem("BS_name") || "Production Bookmarklet",
+      bookmarkletText: localStorage.getItem("BS_name") || "",
       compiledCode,
     };
   }

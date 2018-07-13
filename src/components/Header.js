@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BookmarkletButton from "./BookmarkletButton";
 import DevBookmarkletCode from "../lib/DevBookmarkletCode";
+import NameInput from "./NameInput";
 
 const HeaderView = styled.div`
   background-color: #1d1d1b;
@@ -24,26 +25,14 @@ const HeaderLogo = styled.h1`
   margin-top: 4px;
 `;
 
-const BookmarkletTextInput = styled.input`
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5em;
-  margin-left: 20px;
-  &:focus {
-    outline: none;
-  }
-`;
-
 export default ({ code, bookmarkletText, handleNameChange }) => {
   return (
     <HeaderView>
       <HeaderLogo>BIDE</HeaderLogo>
-      <BookmarkletTextInput
-        value={bookmarkletText}
+      <NameInput
+        bookmarkletText={bookmarkletText}
+        handleNameChange={handleNameChange}
         placeholder="Untitled Bookmarklet"
-        hasName={Boolean(bookmarkletText)}
-        onChange={e => handleNameChange(e.target.value)}
       />
       <BookmarkletButton href={DevBookmarkletCode} beforeText="Dev Bookmarklet">
         <span>Dev Bookmarklet</span>

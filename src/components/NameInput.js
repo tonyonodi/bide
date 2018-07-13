@@ -5,6 +5,8 @@ const BookmarkletTextInputContainer = styled.div`
   display: inline-block;
   margin-left: 20px;
   position: relative;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 const HiddenDiv = styled.div`
@@ -19,7 +21,7 @@ const BookmarkletTextInput = styled.input`
   font-size: 1.5em;
   position: absolute;
   top: 0;
-
+  width: 100%;
   &:focus {
     outline: none;
   }

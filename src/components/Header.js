@@ -24,10 +24,33 @@ const HeaderLogo = styled.h1`
   margin-top: 4px;
 `;
 
-export default ({ code, bookmarkletText }) => (
-  <HeaderView>
-    <HeaderLogo>BIDE</HeaderLogo>
-    <BookmarkletButton code={DevBookmarkletCode} text="Dev Bookmarklet" />
-    <BookmarkletButton code={code} text={bookmarkletText} editable />
-  </HeaderView>
-);
+const BookmarkletTextInput = styled.input`
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  margin-left: 20px;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export default ({ code, bookmarkletText, handleNameChange }) => {
+  return (
+    <HeaderView>
+      <HeaderLogo>BIDE</HeaderLogo>
+      <BookmarkletTextInput
+        value={bookmarkletText}
+        placeholder="Untitled Bookmarklet"
+        hasName={Boolean(bookmarkletText)}
+        onChange={e => handleNameChange(e.target.value)}
+      />
+      <BookmarkletButton href={DevBookmarkletCode} beforeText="Dev Bookmarklet">
+        <span>Dev Bookmarklet</span>
+      </BookmarkletButton>
+      <BookmarkletButton href={code} beforeText="Production Bookmarklet">
+        <span>{bookmarkletText}</span>
+      </BookmarkletButton>
+    </HeaderView>
+  );
+};

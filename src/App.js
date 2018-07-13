@@ -47,7 +47,12 @@ class App extends Component {
 
   compileCode = CompileBookmarklet;
 
-  handleChange = code => {
+  handleNameChange = name => {
+    this.setState({ bookmarkletText: name });
+    localStorage.setItem("BS_name", name);
+  };
+
+  handleCodeChange = code => {
     this.setState({ code });
     this.setState({ compiledCode: this.compileCode(code) });
     localStorage.setItem("BS_code", code);
@@ -59,10 +64,11 @@ class App extends Component {
         <Header
           code={this.state.compiledCode}
           bookmarkletText={this.state.bookmarkletText}
+          handleNameChange={this.handleNameChange}
         />
         <Codemirror
           value={this.state.code}
-          onChange={this.handleChange}
+          onChange={this.handleCodeChange}
           options={CODEMIRROR_OPTIONS}
         />
         <div id="code-silo" style={{ display: "none" }}>

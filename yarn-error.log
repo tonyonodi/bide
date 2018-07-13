@@ -1,0 +1,62 @@
+Arguments: 
+  /Users/tony/.nvm/versions/node/v8.11.2/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js start
+
+PATH: 
+  /Users/tony/.rvm/gems/ruby-2.2.1/bin:/Users/tony/.rvm/gems/ruby-2.2.1@global/bin:/Users/tony/.rvm/rubies/ruby-2.2.1/bin:/usr/local/heroku/bin:/Users/tony/.nvm/versions/node/v8.11.2/bin:/Users/tony/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/tony/.cargo/bin:/opt/X11/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/tony/.local/bin:/Users/tony/.cabal/bin:/Applications/ghc-7.10.2.app/Contents/bin:/usr/local/bin:/usr/local/sbin:/Users/tony/.rbenv/shims:/Users/tony/.rbenv/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/tony/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.11.2
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "Bide",
+    "version": "0.0.1",
+    "private": true,
+    "devDependencies": {
+      "react-scripts": "1.0.0"
+    },
+    "dependencies": {
+      "babel-standalone": "^6.12.0",
+      "react": "^15.2.1",
+      "react-codemirror": "^0.2.6",
+      "react-dom": "^15.2.1",
+      "styled-components": "^3.2.3"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "eject": "react-scripts eject",
+      "deploy": "npm run build && now build"
+    },
+    "eslintConfig": {
+      "extends": "./node_modules/react-scripts/config/eslint.js"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Command failed.
+  Exit signal: SIGHUP
+  Command: sh
+  Arguments: -c react-scripts start
+  Directory: /Users/tony/projects/react/bookmarklet-studio
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:30281:17)
+      at emitTwo (events.js:126:13)
+      at ChildProcess.emit (events.js:214:7)
+      at maybeClose (internal/child_process.js:925:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

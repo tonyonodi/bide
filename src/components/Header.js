@@ -6,9 +6,11 @@ import NameInput from "./NameInput";
 import CopyCodeButton from "./CopyCodeButton";
 
 const HeaderView = styled.div`
-  background-color: #1d1d1b;
-  height: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 10px 20px;
+  background-color: #1d1d1b;
   color: white;
 `;
 
@@ -26,22 +28,34 @@ const HeaderLogo = styled.h1`
   margin-top: 4px;
 `;
 
+const Buttons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 export default ({ code, bookmarkletText, handleNameChange }) => {
   return (
     <HeaderView>
-      <HeaderLogo>BIDE</HeaderLogo>
-      <NameInput
-        bookmarkletText={bookmarkletText}
-        handleNameChange={handleNameChange}
-        placeholder="Untitled Bookmarklet"
-      />
-      <BookmarkletButton href={DevBookmarkletCode} beforeText="Dev Bookmarklet">
-        <span>Dev Bookmarklet</span>
-      </BookmarkletButton>
-      <BookmarkletButton href={code} beforeText="Production Bookmarklet">
-        <span>{bookmarkletText || "Production Bookmarklet"}</span>
-      </BookmarkletButton>
-      <CopyCodeButton name={bookmarkletText} code={code} />
+      <div>
+        <HeaderLogo>BIDE</HeaderLogo>
+        <NameInput
+          bookmarkletText={bookmarkletText}
+          handleNameChange={handleNameChange}
+          placeholder="Untitled Bookmarklet"
+        />
+      </div>
+      <Buttons>
+        <CopyCodeButton name={bookmarkletText} code={code} />
+        <BookmarkletButton href={code} beforeText="Production Bookmarklet">
+          <span>{bookmarkletText || "Production Bookmarklet"}</span>
+        </BookmarkletButton>
+        <BookmarkletButton
+          href={DevBookmarkletCode}
+          beforeText="Dev Bookmarklet"
+        >
+          <span>Dev Bookmarklet</span>
+        </BookmarkletButton>
+      </Buttons>
     </HeaderView>
   );
 };

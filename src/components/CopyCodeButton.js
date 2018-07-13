@@ -12,7 +12,6 @@ const floatup = keyframes`
 
 const Parent = styled.div`
   position: relative;
-  float: right;
   margin-top: 12px;
   margin-right: 10px;
   position: relative;

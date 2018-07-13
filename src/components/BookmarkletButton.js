@@ -9,7 +9,6 @@ export default styled.a`
   text-decoration: none;
   background: #c35050;
   padding: 8px;
-  float: right;
   margin: 4px 5px;
   border-radius: 5px;
   min-height: 37px;

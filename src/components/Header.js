@@ -38,7 +38,7 @@ export default ({ code, bookmarkletText, handleNameChange }) => {
         <span>Dev Bookmarklet</span>
       </BookmarkletButton>
       <BookmarkletButton href={code} beforeText="Production Bookmarklet">
-        <span>{bookmarkletText}</span>
+        <span>{bookmarkletText || "Production Bookmarklet"}</span>
       </BookmarkletButton>
     </HeaderView>
   );

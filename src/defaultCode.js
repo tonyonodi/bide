@@ -14,6 +14,9 @@ export default `// __/\\\\\\\\\\\\\\\\\\\\\\\\\\____/\\\\\\\\\\\\\\\\\\\\\\__/\\
 // of the page. Drag either of the two bookmarklets to your bookmark bar to test 
 // them out.
 // 
+// Be warned, whether or not the dev bookmarklet works depends on the CSP of the
+// web page you are using it on. As such it is temperamental.
+// 
 // Your changes are automatically saved to the browser's local storage so you 
 // can close the tab and come back to what you were doing later.
 

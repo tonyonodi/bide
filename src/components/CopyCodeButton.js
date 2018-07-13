@@ -1,7 +1,17 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const Link = styled.div`
+const floatup = keyframes`
+  20% {
+    opacity: 0.999;
+  }
+  100% {
+    transform: translate3d(0, -17px, 0);
+  }
+`;
+
+const Parent = styled.div`
+  position: relative;
   float: right;
   margin-top: 12px;
   margin-right: 10px;
@@ -12,9 +22,20 @@ const Link = styled.div`
   &:before {
     content: "Copy Code";
   }
-  & span {
-    display: none;
+  &:after {
+    content: attr(data-copy-message);
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0.001;
+    text-align: center;
+    ${({ showCopiedMessage }) =>
+      showCopiedMessage ? `animation: ${floatup} 0.5s ease-in-out;` : ""};
   }
+`;
+
+const Name = styled.span`
+  display: none;
 `;
 
 const Code = styled.input`
@@ -24,30 +45,41 @@ const Code = styled.input`
 `;
 
 export default class CopyCodeButton extends Component {
-  shouldComponentUpdate(nextProps, _nextState) {
+  state = { showCopiedMessage: false };
+
+  shouldComponentUpdate(nextProps, nextState) {
     const codeChanged = nextProps.code !== this.props.code;
     const nameChanged = nextProps.name !== this.props.name;
-    return codeChanged || nameChanged;
+    const stateChanged = this.state !== nextState;
+    return codeChanged || nameChanged || stateChanged;
   }
 
   handleClick = () => {
     this.codeElement.select();
     document.execCommand("copy");
+
+    this.setState({ showCopiedMessage: true });
+    setTimeout(() => this.setState({ showCopiedMessage: false }), 500);
   };
 
   render() {
     const { code, name } = this.props;
+    const { showCopiedMessage } = this.state;
     const buttonCode = `<a href="${encodeURI(code)}">${name}</a>`;
 
     return (
-      <Link onClick={this.handleClick}>
-        <span>{name}</span>
+      <Parent
+        onClick={this.handleClick}
+        showCopiedMessage={showCopiedMessage}
+        data-copy-message="Copied"
+      >
+        <Name>{name}</Name>
         <Code
           innerRef={el => (this.codeElement = el)}
           value={buttonCode}
           readOnly
         />
-      </Link>
+      </Parent>
     );
   }
 }

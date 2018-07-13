@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-html, body, #root, .App {
+html, body, #root {
   height: 100%;
 }
 
 .ReactCodeMirror, .CodeMirror.cm-s-icecoder {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 60px - 21px);
 }

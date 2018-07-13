@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
+import styled from "../node_modules/styled-components";
 import Codemirror from "react-codemirror";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import CompileBookmarklet from "./lib/Compiler";
 import defaultCode from "./defaultCode";
+import "./App.css";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/icecoder.css";
@@ -26,6 +28,12 @@ const CODEMIRROR_OPTIONS = {
   matchBrackets: true,
   undoDepth: Infinity,
 };
+
+const AppView = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
 
 class App extends Component {
   constructor(props, content) {
@@ -59,7 +67,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <AppView className="App">
         <Header
           code={this.state.compiledCode}
           bookmarkletText={this.state.bookmarkletText}
@@ -70,7 +78,8 @@ class App extends Component {
           onChange={this.handleCodeChange}
           options={CODEMIRROR_OPTIONS}
         />
-      </div>
+        <Footer />
+      </AppView>
     );
   }
 }

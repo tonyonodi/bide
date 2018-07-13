@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BookmarkletButton from "./BookmarkletButton";
 import DevBookmarkletCode from "../lib/DevBookmarkletCode";
 import NameInput from "./NameInput";
+import CopyCodeButton from "./CopyCodeButton";
 
 const HeaderView = styled.div`
   background-color: #1d1d1b;
@@ -40,6 +41,7 @@ export default ({ code, bookmarkletText, handleNameChange }) => {
       <BookmarkletButton href={code} beforeText="Production Bookmarklet">
         <span>{bookmarkletText || "Production Bookmarklet"}</span>
       </BookmarkletButton>
+      <CopyCodeButton name={bookmarkletText} code={code} />
     </HeaderView>
   );
 };

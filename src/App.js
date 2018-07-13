@@ -70,9 +70,6 @@ class App extends Component {
           onChange={this.handleCodeChange}
           options={CODEMIRROR_OPTIONS}
         />
-        <div id="code-silo" style={{ display: "none" }}>
-          {this.state.compiledCode}
-        </div>
       </div>
     );
   }

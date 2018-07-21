@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export default styled.a`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-column-gap: 0;
   color: #c35050;
   font-family: "Inconsolata", monospace;
   text-decoration: none;

@@ -9,5 +9,5 @@ html, body, #root {
 }
 
 .ReactCodeMirror, .CodeMirror.cm-s-icecoder {
-  height: calc(100vh - 60px - 21px);
+  height: calc(100vh - 60px - 28px);
 }
